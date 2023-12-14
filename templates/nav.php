@@ -46,15 +46,17 @@ if(!empty($pageName)){
                 </a>
             </div>
 
-            <div class="px-4">
+
+            <div class="px-4 pb-6">
                 <h3 class="mb-2 text-xs uppercase text-gray-500 font-medium">Recherche</h3>
-                <form action="search.php" method="get">
-                    <input type="text" name="q" class="px-3 py-2 text-gray-800 rounded-full border-2 border-gray-300 focus:outline-none focus:border-indigo-500" placeholder="Rechercher un livre ...">
-                    <button type="submit" class="mt-2 px-4 py-2 bg-indigo-500 text-white rounded-full">
-                        Rechercher
-                    </button>
+                <form action="search.php" method="get" class="mb-5">
+                    <div class="flex items-center">
+                        <input type="text" class="border rounded-l py-2 px-0" placeholder="Rechercher par titre" name="bookTitle">
+                        <button class="bg-indigo-600 text-white border border-indigo-600 rounded-r px-4 py-2" type="submit">Rechercher</button>
+                    </div>
                 </form>
             </div>
+
 
 
 

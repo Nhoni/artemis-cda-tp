@@ -103,26 +103,30 @@ class Book
      * @param string $keyword
      * @return array
      */
-    static public function searchBooks($keyword): array
-    {
-        $pdo = Database::getPDO();
-        $query = "SELECT
-                    Book.id AS BookId,
-                    Book.title AS BookTitle,
-                    Book.description AS BookDescription,
-                    Book.isbn AS BookIsbn,
-                    Author.name AS AuthorName,
-                    Publisher.name AS PublisherName
-                FROM Book JOIN Author ON Book.author_id = Author.id
-                JOIN Publisher ON Book.publisher_id = Publisher.id
-                WHERE Book.title LIKE '%$keyword%'
-                ORDER BY Book.title ASC;
-                ";
-        $stmt = $pdo->prepare($query);
-        $stmt->execute();
-        $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $books;
-    }
+    
+static public function searchBooks($title): array
+{
+    $pdo = Database::getPDO();
+    $query = "SELECT
+                Book.id AS BookId,
+                Book.title AS BookTitle,
+                Book.description AS BookDescription,
+                Book.isbn AS BookIsbn,
+                Author.name AS AuthorName,
+                Publisher.name AS PublisherName
+            FROM Book JOIN Author ON Book.author_id = Author.id
+            JOIN Publisher ON Book.publisher_id = Publisher.id
+            WHERE Book.title = :title
+            ORDER BY Book.title ASC;
+            ";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':title', $title, PDO::PARAM_STR);
+    $stmt->execute();
+    $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $books;
+}
+
+
 
     /**
      * Méthode statique permettant de récupérer tous les livres
