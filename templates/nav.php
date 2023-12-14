@@ -45,6 +45,19 @@ if(!empty($pageName)){
                     <img class="h-8" src="artemis-assets/logos/artemis-logo.svg" alt="" width="auto">
                 </a>
             </div>
+
+            <div class="px-4">
+                <h3 class="mb-2 text-xs uppercase text-gray-500 font-medium">Recherche</h3>
+                <form action="search.php" method="get">
+                    <input type="text" name="q" class="px-3 py-2 text-gray-800 rounded-full border-2 border-gray-300 focus:outline-none focus:border-indigo-500" placeholder="Rechercher un livre ...">
+                    <button type="submit" class="mt-2 px-4 py-2 bg-indigo-500 text-white rounded-full">
+                        Rechercher
+                    </button>
+                </form>
+            </div>
+
+
+
             <div class="px-4 pb-6">
                 <h3 class="mb-2 text-xs uppercase text-gray-500 font-medium">Main</h3>
                 <ul class="mb-8 text-sm font-medium">

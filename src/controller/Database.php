@@ -12,9 +12,9 @@ use PDOException;
 
 class Database
 {
-    private static $host = 'localhost';
+    private static $host = 'localhost:3306';
     private static $dbname = 'artemis';
-    private static $username = 'mba-m2';
+    private static $username = 'root';
     private static $password = '';
     private static $charset = 'utf8mb4';
     private static $pdo;
